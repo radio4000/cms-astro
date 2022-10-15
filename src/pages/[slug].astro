@@ -1,13 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
-
 const {slug} = Astro.params
-
-const res = await fetch('http://localhost:3000/api/channels')
-const data = await res.json()
-console.log(data)
 ---
 
 <Layout title="CMS">
-	<p>Slug page: {slug}</p>
+	<h1>Slug page: {slug}</h1>
 </Layout>
