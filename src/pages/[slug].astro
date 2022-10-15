@@ -1,0 +1,13 @@
+---
+export function getStaticPaths() {
+	return [
+		{params: {slug: 'my-radio'}}
+	]
+}
+import Layout from '../layouts/Layout.astro'
+const {slug} = Astro.params
+---
+
+<Layout title="CMS">
+	<p>Slug page: {slug}</p>
+</Layout>

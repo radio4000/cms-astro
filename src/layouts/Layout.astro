@@ -1,0 +1,39 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.png" sizes="192x192" />
+		<!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
+		<!-- <meta name="theme-color" content="#5d1ae6" /> -->
+		<meta name="og:image" content="https://radio4000.com/favicon.png" />
+		<title>Radio4000</title>
+		<title>{title}</title>
+	</head>
+	<body>
+		<aside>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/create-radio">Create radio</a>
+				<a href="/add-track">Add track</a>
+			</nav>
+		</aside>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: #F6F6F6;
+	}
+</style>
