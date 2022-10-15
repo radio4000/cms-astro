@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
-// import sdk from '@radio4000/sdk'
-
-// const channels = await sdk.findChannels()
-// console.log(channels)
+import sdk from '@radio4000/sdk'
+const {data} = await sdk.findChannels(500)
+// console.log(data)
 ---
 
 <Layout title="Explore">
 	<p>Explore</p>
+	<ul>{data.map((channel => <li>{channel.name}</li>))}</ul>
 </Layout>
