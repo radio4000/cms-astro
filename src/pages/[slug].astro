@@ -1,11 +1,11 @@
 ---
-export function getStaticPaths() {
-	return [
-		{params: {slug: 'my-radio'}}
-	]
-}
 import Layout from '../layouts/Layout.astro'
+
 const {slug} = Astro.params
+
+const res = await fetch('http://localhost:3000/api/channels')
+const data = await res.json()
+console.log(data)
 ---
 
 <Layout title="CMS">
