@@ -1,4 +1,6 @@
 ---
+import '@radio4000/components'
+
 export interface Props {
 	title: string;
 }
@@ -19,6 +21,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<header>
+			<r4-favicon></r4-favicon>
+			<r4-title></r4-title>
+		</header>
 		<aside>
 			<nav>
 				<a href="/">Home</a>
