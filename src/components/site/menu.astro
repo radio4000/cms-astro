@@ -1,0 +1,21 @@
+---
+import sdk from '@radio4000/sdk'
+const user = sdk.supabase.auth.getUser()
+---
+<nav>
+	<a href="/">
+	<r4-auth-status>
+		<r4-favicon slot="in" style="fill: blue;"/>
+		<r4-favicon slot="out" style="fill: purple;"/>
+	</r4-auth-status>
+	</a>
+	<a href="/explore">Explore</a>
+	<a href="/create">Create</a>
+	<r4-auth-status>
+		<a slot="in" href="/auth/out">Sign Out</a>
+		<a slot="out" href="/auth/in">Sign In</a>
+	</r4-auth-status>
+</nav>
+
+<style>
+</style>

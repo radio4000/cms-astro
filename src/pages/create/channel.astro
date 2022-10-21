@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro'
+---
+
+<Layout title="Create channel">
+	<h1>Create channel</h1>
+	<r4-channel-create/>
+</Layout>
+
+<script>
+		function handleSubmit({detail}) {
+			console.log('Create did submit', detail)
+			if (detail.data) {
+				window.location.href = `/${detail.data.slug}`
+			}
+		}
+		document.querySelector('r4-channel-create').addEventListener('submit', handleSubmit)
+	</script>

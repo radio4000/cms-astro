@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro'
+const onSubmit = () => {
+	console.log('hello')
+}
+---
+
+<Layout title="Create channel">
+	<h1>Create channel</h1>
+	<r4-channel-create onSubmit={onSubmit}/>
+</Layout>
+
+<script>
+	function handleSubmit () {
+			 console.log("button clicked!")
+		}
+	document.queryselector('r4-channel-create').addEventListener('submit', handleSubmit)
+</script>
