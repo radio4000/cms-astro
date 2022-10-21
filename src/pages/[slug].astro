@@ -1,10 +1,10 @@
 ---
-export function getStaticPaths() {
-	return []
-}
+// export function getStaticPaths() {
+// 	return []
+// }
+import sdk from '@radio4000/sdk'
 import Layout from '../layouts/Layout.astro'
 const {slug} = Astro.params
-import sdk from '@radio4000/sdk'
 const {data: channel} = await sdk.findChannelBySlug(slug)
 ---
 

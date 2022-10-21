@@ -6,9 +6,13 @@
 		<a href="/explore">Explore</a>
 	</nav>
 	<nav>
+		<r4-user></r4-user>
+		<a href="/auth/sign-up">Sign Up</a>
+		<a href="/auth/sign-in">Sign In</a>
+		<a href="/auth/sign-out">Sign Out</a>
+		<span>---dynamicmenu-></span>
 		<r4-auth-status>
 			<span slot="in">
-				<div><r4-user /></div>
 				<a href="/auth/sign-out">Sign Out</a>
 			</span>
 			<span slot="out">
@@ -17,6 +21,7 @@
 			</span>
 		</r4-auth-status> 
 	</nav>
+
 </header>
 
 <style>
