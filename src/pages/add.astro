@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro'
+import sdk from '@radio4000/sdk'
+
+const user = await sdk.getUser()
+console.log(user)
+// const { data, error } = await sdk.supabase.from('user_channel').select('user_id, channel_id').eq('user_id', user.id)
+// const { data: channels } = await  sdk.supabase.from('channels').select('id, name')//.eq('id', data[0].id)
+// console.log(data)
+// console.log(channels)
+---
+
+<Layout title="Add track">
+	<h1>Add track</h1>
+	<r4-track-create></r4-track-create>
+
+	<script>
+		function handleSubmit(event) {
+			console.log('Create did submit', event.detail)
+		}
+		document.querySelector('r4-track-create').addEventListener('submit', handleSubmit)
+	</script>
+</Layout>

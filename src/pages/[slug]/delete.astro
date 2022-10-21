@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro'
+const {slug} = Astro.params
+import sdk from '@radio4000/sdk'
+const {data: channel} = await sdk.findChannelBySlug(slug)
+---
+
+<Layout title="CMS">
+	<p>Do you really want to delete the radio <a href={`/${channel.slug}`}>{channel.name}</a></p>
+	<r4-channel-delete slug={slug}></r4-channel-delete>
+</Layout>

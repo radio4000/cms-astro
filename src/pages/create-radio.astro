@@ -4,4 +4,13 @@ import Layout from '../layouts/Layout.astro'
 
 <Layout title="Create radio">
 	<h1>Create radio</h1>
+
+	<r4-channel-create />
 </Layout>
+
+<script>
+	function handleSubmit(event) {
+		console.log('created channel', event.detail)
+	}
+	document.querySelector('r4-channel-create').addEventListener('submit', handleSubmit)
+</script>

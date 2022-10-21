@@ -1,0 +1,9 @@
+---
+import Layout from '../../layouts/Layout.astro'
+const {slug} = Astro.params
+---
+
+<Layout title="CMS">
+	<h1>edit page: {slug}</h1>
+	<r4-channel-update slug={slug}></r4-channel-update>
+</Layout>

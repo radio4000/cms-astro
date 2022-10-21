@@ -1,0 +1,41 @@
+<header>
+	<nav>
+		<a href="/"><r4-favicon /></a>
+		<a href="/create-radio">Create radio</a>
+		<a href="/add">Add track</a>
+		<a href="/explore">Explore</a>
+	</nav>
+	<nav>
+		<r4-auth-status>
+			<span slot="in">
+				<div><r4-user /></div>
+				<a href="/auth/sign-out">Sign Out</a>
+			</span>
+			<span slot="out">
+				<a href="/auth/sign-up">Sign Up</a>
+				<a href="/auth/sign-in">Sign In</a>
+			</span>
+		</r4-auth-status> 
+	</nav>
+</header>
+
+<style>
+	header {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		gap: 2em;
+	}
+	nav {
+		display: flex;
+		place-items: center;
+		gap: 1em;
+		min-height: 3em;
+	}
+	nav r4-favicon {
+		width: 2em;
+	}
+	a {
+		color: black;
+	}
+</style>
