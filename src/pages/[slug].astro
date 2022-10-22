@@ -5,16 +5,30 @@
 import sdk from '@radio4000/sdk'
 import Layout from '../layouts/Layout.astro'
 const {slug} = Astro.params
+
+// Find channel by slug, if no channel, look in Firebase.
 const {data: channel, error} = await sdk.findChannelBySlug(slug)
-if (error) return Astro.redirect('404')
+let oldChannel
+if (error) {
+	const res = await sdk.findFirebaseChannelBySlug(slug)
+	if (res)  oldChannel = Object.values(res)[0]
+}
+if (!channel && !oldChannel) {
+	return Astro.redirect('404')
+}
 ---
 
 <Layout title="CMS">
 	<h1>/{slug}</h1>
-	<r4-channel slug={slug}></r4-channel>
 
-	<nav>
-		<a href={`/${channel.slug}/edit`}>Edit</a>
-		<a href={`/${channel.slug}/delete`}>Delete</a>
-	</nav>
+	{oldChannel && <p>You've landed on an old channel.</p>}
+
+	{channel && 
+		<r4-channel slug={slug}></r4-channel>
+		<nav>
+			<a href={`/${channel.slug}/edit`}>Edit</a>
+			<a href={`/${channel.slug}/delete`}>Delete</a>
+		</nav>
+	}
+
 </Layout>

@@ -1,3 +1,9 @@
+---
+import sdk from '@radio4000/sdk'
+// const user = await sdk.getUser()
+// console.log(user)
+---
+
 <header>
 	<nav>
 		<a href="/"><r4-favicon /></a>
@@ -6,22 +12,19 @@
 		<a href="/explore">Explore</a>
 	</nav>
 	<nav>
-		<r4-user></r4-user>
-		<a href="/auth/sign-up">Sign Up</a>
-		<a href="/auth/sign-in">Sign In</a>
-		<a href="/auth/sign-out">Sign Out</a>
-		<span>---dynamicmenu-></span>
+		<!-- <r4-user></r4-user> -->
 		<r4-auth-status>
-			<span slot="in">
-				<a href="/auth/sign-out">Sign Out</a>
-			</span>
-			<span slot="out">
+			<div slot="out">
+				signed out
 				<a href="/auth/sign-up">Sign Up</a>
 				<a href="/auth/sign-in">Sign In</a>
-			</span>
-		</r4-auth-status> 
+			</div>
+			<div slot="in">
+				signed in
+				<r4-sign-out />
+			</div>
+		</r4-auth-status>
 	</nav>
-
 </header>
 
 <style>
