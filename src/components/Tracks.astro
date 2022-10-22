@@ -1,0 +1,29 @@
+---
+import sdk from '@radio4000/sdk'
+
+export interface Props {
+	slug: string
+}
+
+const { slug } = Astro.props
+
+const { data, error } = await sdk.supabase
+	.from('channel_track')
+	.select('channel_id!inner(slug), track_id(id, created_at, updated_at, title, url, description)')
+	.eq('channel_id.slug', slug)
+console.log(data, error)
+const tracks = data.map((t) => t.track_id)
+
+// select
+// id, t.created_at, t.updated_at, url, discogs_url, title, description, tags, mentions, url, title, description, tags, mentions
+// from tracks t
+// join channel_track on id = track_id
+// where channel_id = 'a06f4fac-fa39-46b5-9c06-d4a7a3c7b9b5'
+---
+
+<h2>Tracks {data.length}</h2>
+<ul>
+	{tracks.map((track) => <li>{track.title}</li>)}
+</ul>
+
+<style></style>

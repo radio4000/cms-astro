@@ -1,8 +1,6 @@
 ---
-// export function getStaticPaths() {
-// 	return []
-// }
 import sdk from '@radio4000/sdk'
+import Tracks from '../components/Tracks.astro'
 import Layout from '../layouts/Layout.astro'
 const {slug} = Astro.params
 
@@ -29,6 +27,7 @@ if (!channel && !oldChannel) {
 			<a href={`/${channel.slug}/edit`}>Edit</a>
 			<a href={`/${channel.slug}/delete`}>Delete</a>
 		</nav>
+		<Tracks slug={slug} />
 	}
 
 </Layout>
