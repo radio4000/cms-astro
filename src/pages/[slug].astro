@@ -5,7 +5,8 @@
 import sdk from '@radio4000/sdk'
 import Layout from '../layouts/Layout.astro'
 const {slug} = Astro.params
-const {data: channel} = await sdk.findChannelBySlug(slug)
+const {data: channel, error} = await sdk.findChannelBySlug(slug)
+if (error) return Astro.redirect('404')
 ---
 
 <Layout title="CMS">
