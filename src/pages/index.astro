@@ -1,7 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import sdk from '@radio4000/sdk'
+const {data} = await sdk.findChannels(500)
 ---
-
-<Layout title="CMS">
-	<p>r4.v2</p>
+<Layout>
+	<ul>
+		{
+			data.map((channel) => (
+				<li>
+					<a href={`/${channel.slug}`}>{channel.name} <small>@{channel.slug}</small></a>
+				</li>
+			))
+		}
+	</ul>
 </Layout>
+
+<style>
+	small {
+		opacity: 0.5;
+	}
+</style>
+
