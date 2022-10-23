@@ -12,7 +12,9 @@ import Layout from '../layouts/Layout.astro'
 		const form = document.querySelector('r4-track-create')
 
 		select.addEventListener('input', ({detail}) => {
-			form.querySelector('[name="channel_id"]').value = detail.channel.id
+			const channelInput = form.querySelector('[name="channel_id"]')
+			channelInput.value = detail.channel.id
+			channelInput.dispatchEvent(new Event('input'))
 		})
 
 		form.addEventListener('submit', ({detail}) => {

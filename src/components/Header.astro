@@ -14,15 +14,13 @@ import sdk from '@radio4000/sdk'
 	<nav>
 		<!-- <r4-user></r4-user> -->
 		<r4-auth-status>
-			<div slot="out">
-				signed out
+			<nav slot="out">
 				<a href="/auth/sign-up">Sign Up</a>
 				<a href="/auth/sign-in">Sign In</a>
-			</div>
-			<div slot="in">
-				signed in
+			</nav>
+			<nav slot="in">
 				<r4-sign-out />
-			</div>
+			</nav>
 		</r4-auth-status>
 	</nav>
 </header>

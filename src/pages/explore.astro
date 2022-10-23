@@ -11,7 +11,7 @@ const { data } = await sdk.findChannels(500)
 		{
 			data.map((channel) => (
 				<li>
-					<a href={`/${channel.slug}`}>{channel.name}</a>
+					<a href={`/${channel.slug}`}>@{channel.slug} - {channel.name}</a>
 				</li>
 			))
 		}
