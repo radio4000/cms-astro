@@ -16,8 +16,7 @@ const { title } = Astro.props;
 		<!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
 		<!-- <meta name="theme-color" content="#5d1ae6" /> -->
 		<meta name="og:image" content="https://radio4000.com/favicon.png" />
-		<title>R4</title>
-		<title>{title}</title>
+		<title>{title ? `${title} - R4` : 'R4'}</title>
 		<script>
 			import '@radio4000/components'
 		</script>
@@ -63,10 +62,12 @@ const { title } = Astro.props;
 
 	button,
 	input,
+	select,
 	.button {
 		font-family: inherit;
 		font-size: 1rem;
 	}
+
 	button,
 	.button {
 		display: inline-block;
@@ -90,5 +91,17 @@ const { title } = Astro.props;
 	}
 	button[type="submit"] {
 		text-transform: capitalize;
+	}
+
+	fieldset {
+		display: flex;
+		flex-flow: row wrap;
+	}
+	fieldset label {
+		min-width: 6rem;
+	}
+	fieldset input,
+	fieldset textarea {
+		flex: 1;
 	}
 </style>

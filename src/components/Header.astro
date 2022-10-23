@@ -7,8 +7,6 @@ import sdk from '@radio4000/sdk'
 <header>
 	<nav>
 		<a href="/"><r4-favicon /></a>
-		<a href="/create-radio">Create radio</a>
-		<a href="/add">Add track</a>
 	</nav>
 	<nav>
 		<!-- <r4-user></r4-user> -->
@@ -18,6 +16,8 @@ import sdk from '@radio4000/sdk'
 				<a href="/auth/sign-in">Sign In</a>
 			</nav>
 			<nav slot="in">
+				<a href="/create-radio">Create radio</a>
+				<a href="/add">Add track</a>
 				<r4-sign-out />
 			</nav>
 		</r4-auth-status>
@@ -28,7 +28,7 @@ import sdk from '@radio4000/sdk'
 	header {
 		display: flex;
 		flex-flow: row wrap;
-		justify-content: space-between;
+		/* justify-content: space-between; */
 		gap: 2em;
 	}
 	nav {

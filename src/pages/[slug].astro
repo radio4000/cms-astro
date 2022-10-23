@@ -1,7 +1,6 @@
 ---
-import date from '../lib/date'
 import sdk from '@radio4000/sdk'
-import Tracks from '../components/Tracks.astro'
+import Channel from '../components/Channel.astro'
 import Layout from '../layouts/Layout.astro'
 const {slug} = Astro.params
 
@@ -10,28 +9,24 @@ const {data: channel, error} = await sdk.findChannelBySlug(slug)
 let oldChannel
 if (error) {
 	const res = await sdk.findFirebaseChannelBySlug(slug)
-	if (res)  oldChannel = Object.values(res)[0]
+	if (res) oldChannel = Object.values(res)[0]
 }
 if (!channel && !oldChannel) {
 	return Astro.redirect('404')
 }
+
+// const canEdit = await sdk.canEditChannel(channel.slug)
+// const canEdit = false
 ---
 
-<Layout title="CMS">
+<Layout title={channel.name}>
 	{oldChannel && <p>You've landed on an old channel.</p>}
-
-	{channel && 
-		<h1>{channel.name} <small>@{channel.slug}</small></h1>
-		<nav>
-			<a href={`/${channel.slug}/edit`}>Edit</a>
-			<a href={`/${channel.slug}/delete`}>Delete</a>
-		</nav>
-		<p>
-			Created {date(channel.created_at)}<br/>
-			Updated {date(channel.created_at)}
-		</p>
-		<Tracks slug={slug} />
-		<!-- <r4-channel slug={slug}></r4-channel> -->
-	}
-
+	<p>hey</p>
+	<Channel channel={channel} />
 </Layout>
+
+<script type="module">
+	// import sdk from 'https://cdn.jsdelivr.net/npm/@radio4000/sdk/dist/index.min.js'
+	// const user = await sdk.getUser()
+	// console.log('client user', user)
+</script>

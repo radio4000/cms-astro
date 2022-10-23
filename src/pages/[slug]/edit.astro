@@ -1,9 +1,16 @@
 ---
+import sdk from '@radio4000/sdk'
 import Layout from '../../layouts/Layout.astro'
 const {slug} = Astro.params
+const {data} = await sdk.findChannelBySlug(slug)
 ---
 
 <Layout title="CMS">
 	<h1>edit page: {slug}</h1>
-	<r4-channel-update slug={slug}></r4-channel-update>
+	<r4-channel-update
+		id={data.id}
+		name={data.name}
+		slug={data.slug}
+		description={data.description}
+	/>
 </Layout>

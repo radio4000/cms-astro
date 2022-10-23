@@ -1,0 +1,23 @@
+---
+// import sdk from '@radio4000/sdk'
+import date from '../lib/date'
+import Tracks from '../components/Tracks.astro'
+const {channel} = Astro.props
+// const canEdit = await sdk.canEditChannel(channel.slug)
+// console.log(canEdit, channel.slug)
+---
+
+<h1>{channel.name} <small>@{channel.slug}</small></h1>
+
+<nav>
+	<a href={`/${channel.slug}/edit`}>Edit</a>
+	<a href={`/${channel.slug}/delete`}>Delete</a>
+</nav>
+
+<p>
+	Created {date(channel.created_at)}<br/>
+	Updated {date(channel.created_at)}
+</p>
+
+<!-- <r4-channel slug={slug}></r4-channel> -->
+<Tracks slug={channel.slug} />
