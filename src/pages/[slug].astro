@@ -1,4 +1,5 @@
 ---
+import date from '../lib/date'
 import sdk from '@radio4000/sdk'
 import Tracks from '../components/Tracks.astro'
 import Layout from '../layouts/Layout.astro'
@@ -17,17 +18,20 @@ if (!channel && !oldChannel) {
 ---
 
 <Layout title="CMS">
-	<h1>/{slug}</h1>
-
 	{oldChannel && <p>You've landed on an old channel.</p>}
 
 	{channel && 
-		<r4-channel slug={slug}></r4-channel>
+		<h1>{channel.name} <small>@{channel.slug}</small></h1>
 		<nav>
 			<a href={`/${channel.slug}/edit`}>Edit</a>
 			<a href={`/${channel.slug}/delete`}>Delete</a>
 		</nav>
+		<p>
+			Created {date(channel.created_at)}<br/>
+			Updated {date(channel.created_at)}
+		</p>
 		<Tracks slug={slug} />
+		<!-- <r4-channel slug={slug}></r4-channel> -->
 	}
 
 </Layout>

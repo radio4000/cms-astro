@@ -21,6 +21,8 @@ const { title } = Astro.props;
 		<script>
 			import '@radio4000/components'
 		</script>
+		<link rel="preconnect" href="https://fonts.bunny.net">
+		<link href="https://fonts.bunny.net/css?family=rosario:400,400i,600,700" rel="stylesheet" />
 	</head>
 	<body>
 		<Header></Header>
@@ -30,11 +32,26 @@ const { title } = Astro.props;
 
 <style is:global>
 	:root {
+		--primary: #77ff8e;
+		--text: hsl(0, 0%, 5%); 
+		--link: black;
+	}
+	* {
+		box-sizing: border-box;
 	}
 	html {
-		font-family: system-ui, sans-serif;
+		color: var(--text);
 		background-color: #F6F6F6;
+		font-family: Rosario, Segoe UI, system-ui, sans-serif;
 	}
+	a {
+		color: var(--link);
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+
 	r4-favicon {
 		display: block;
 	}
@@ -42,5 +59,36 @@ const { title } = Astro.props;
 		width: 100%;
 		max-width: 100%;
 		height: auto;
+	}
+
+	button,
+	input,
+	.button {
+		font-family: inherit;
+		font-size: 1rem;
+	}
+	button,
+	.button {
+		display: inline-block;
+		background-color: hsl(0, 0%, 97%);
+		border: 1px solid;
+		padding: 3px 5px;
+		border-radius: 3px;
+		user-select: none;
+		word-spacing: normal;
+		line-height: normal;
+	}
+	button.primary,
+	.button.primary {
+		background: var(--primary);
+	}
+	button:focus,
+	button:hover,
+	.button:focus,
+	.button:hover {
+		box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+	}
+	button[type="submit"] {
+		text-transform: capitalize;
 	}
 </style>
