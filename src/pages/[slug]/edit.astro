@@ -6,6 +6,9 @@ const {data} = await sdk.channels.readChannel(slug)
 ---
 
 <Layout title="CMS">
+	<p>
+		<a href={`/${slug}`}>&larr; back</a>
+	</p>
 	<h1>edit page: {slug}</h1>
 	<r4-channel-update
 		id={data.id}

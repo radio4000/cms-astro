@@ -22,7 +22,8 @@ const tracks = data.map((t) => t.track_id)
 	{
 		tracks.map((track) => (
 			<li>
-				{track.title}
+				{track.title}<br>
+				<span class="faded">{track.description}</span>
 				<details>
 					<summary>Edit</summary>
 					<r4-track-update
@@ -42,5 +43,14 @@ const tracks = data.map((t) => t.track_id)
 <style>
 	h3 {
 		font-size: 1rem;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-flow: column;
+		gap: 1em;
+	}
+	li {
 	}
 </style>
