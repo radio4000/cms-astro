@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import sdk from '@radio4000/sdk'
-const {data} = await sdk.findChannels(500)
+import {readChannels} from '@radio4000/sdk'
+const {data} = await readChannels(500)
 ---
 <Layout>
 	<p>Hello you've landed on R4, the latest version of Radio4000. It's under development and here you can help try it out.</p>

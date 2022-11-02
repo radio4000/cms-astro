@@ -1,25 +1,32 @@
 ---
 import sdk from '@radio4000/sdk'
+import { dateTimeFormat } from 'astro/dist/core/logger/core'
 import Channel from '../components/Channel.astro'
 import Layout from '../layouts/Layout.astro'
+
+interface Props {
+	slug: string
+}
 const {slug} = Astro.params
 
+console.log('slug', slug)
+
 // Find channel by slug, if no channel, look in Firebase.
-const {data: channel, error} = await sdk.findChannelBySlug(slug)
+const {data: channel, error} = await sdk.channels.readChannel(slug)
 let oldChannel
 if (error) {
-	const res = await sdk.findFirebaseChannelBySlug(slug)
+	const res = await sdk.channels.readChannel(slug)
 	if (res) oldChannel = Object.values(res)[0]
 }
 if (!channel && !oldChannel) {
 	return Astro.redirect('404')
 }
 
-// const canEdit = await sdk.canEditChannel(channel.slug)
+// const canEdit = await sdk.channels.canEditChannel(channel.slug)
 // const canEdit = false
 ---
 
-<Layout title={channel.name}>
+<Layout title={channel?.name}>
 	{oldChannel && <p>You've landed on an old channel.</p>}
 	<p>hey</p>
 	<Channel channel={channel} />
@@ -27,6 +34,6 @@ if (!channel && !oldChannel) {
 
 <script type="module">
 	// import sdk from 'https://cdn.jsdelivr.net/npm/@radio4000/sdk/dist/index.min.js'
-	// const user = await sdk.getUser()
+	// const user = await sdk.users.readUser()
 	// console.log('client user', user)
 </script>

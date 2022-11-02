@@ -12,13 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^3.1.0",
-    "@radio4000/components": "^0.0.21",
-    "@radio4000/sdk": "^0.0.21",
-    "astro": "^1.5.2",
+    "@astrojs/cloudflare": "^3.1.2",
+    "@radio4000/components": "^0.0.24",
+    "@radio4000/sdk": "^0.1.2",
+    "astro": "^1.6.2",
     "dayjs": "^1.11.6"
   },
   "devDependencies": {
-    "wrangler": "^2.1.13"
+    "wrangler": "^2.1.14"
   }
 }

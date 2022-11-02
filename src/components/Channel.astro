@@ -3,7 +3,7 @@
 import date from '../lib/date'
 import Tracks from '../components/Tracks.astro'
 const {channel} = Astro.props
-// const canEdit = await sdk.canEditChannel(channel.slug)
+// const canEdit = await sdk.channels.canEditChannel(channel.slug)
 // console.log(canEdit, channel.slug)
 ---
 
@@ -19,5 +19,6 @@ const {channel} = Astro.props
 	Updated {date(channel.created_at)}
 </p>
 
-<!-- <r4-channel slug={slug}></r4-channel> -->
+<!-- <r4-channel slug={channel.slug}></r4-channel> -->
+<!-- <r4-tracks channel={channel.slug} limit="9999"></r4-tracks> -->
 <Tracks slug={channel.slug} />

@@ -10,7 +10,7 @@ const {slug} = Astro.props
 const {data, error} = await sdk.supabase
 	.from('channel_track')
 	.select(
-		'channel_id!inner(slug), track_id(id, created_at, updated_at, title, url, description)'
+		'channel_id!inner(slug), track_id(id, created_at, updated_at, title, url, description, tags, mentions)'
 	)
 	.eq('channel_id.slug', slug)
 
@@ -22,7 +22,7 @@ const tracks = data.map((t) => t.track_id)
 	{
 		tracks.map((track) => (
 			<li>
-				<h3>{track.title}</h3>
+				{track.title}
 				<details>
 					<summary>Edit</summary>
 					<r4-track-update
@@ -31,6 +31,8 @@ const tracks = data.map((t) => t.track_id)
 						title={track.title}
 						description={track.description}
 					/>
+					<p>Tags: {track.tags}</p>
+					<p>Mentions: {track.mentions}</p>
 				</details>
 			</li>
 		))

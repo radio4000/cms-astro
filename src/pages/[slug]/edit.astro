@@ -2,7 +2,7 @@
 import sdk from '@radio4000/sdk'
 import Layout from '../../layouts/Layout.astro'
 const {slug} = Astro.params
-const {data} = await sdk.findChannelBySlug(slug)
+const {data} = await sdk.channels.readChannel(slug)
 ---
 
 <Layout title="CMS">

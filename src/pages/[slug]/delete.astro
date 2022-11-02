@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro'
 const {slug} = Astro.params
 import sdk from '@radio4000/sdk'
-const {data: channel} = await sdk.findChannelBySlug(slug)
+const {data: channel} = await sdk.channels.readChannel(slug)
 if (!channel) Astro.redirect('404')
 ---
 
