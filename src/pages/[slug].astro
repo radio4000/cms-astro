@@ -22,8 +22,9 @@ if (!channel && !oldChannel) {
 	return Astro.redirect('404')
 }
 
+// Can't do this, because the page is pre-rendered, so you're never signed in.
 // const canEdit = await sdk.channels.canEditChannel(channel.slug)
-// const canEdit = false
+// console.log(canEdit)
 ---
 
 <Layout title={channel?.name}>
