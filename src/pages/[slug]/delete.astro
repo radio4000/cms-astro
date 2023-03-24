@@ -7,6 +7,12 @@ if (!channel) Astro.redirect('404')
 ---
 
 <Layout title="CMS">
-	<p>Do you really want to delete the radio <a href={`/${channel.slug}`}>{channel.name}</a></p>
+	<p>
+		Do you really want to delete the radio 
+		<strong><a href={`/${channel.slug}`}>{channel.name}</a></strong>?
+	</p>
+
 	<r4-channel-delete id={channel.id}></r4-channel-delete>
+
+	<p><button>Delete all tracks</button></p>
 </Layout>

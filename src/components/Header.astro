@@ -7,7 +7,14 @@ import sdk from '@radio4000/sdk'
 
 <header>
 	<nav>
-		<a href="/"><r4-favicon /></a>
+		<a href="/">
+			<!-- <r4-favicon /> -->
+<svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.14711 15.8736H17.1421V19H20.0937V15.8736H21.9995V12.9571H20.0937V2.66773H15.3293L9.14711 12.9338V15.8736ZM11.7138 12.9978L17.9823 7.70977H18.0432V12.9978H11.7138Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 13.5481H1.14664V8.0248H5.52112L9.20077 13.5481H11.0045L7.20462 7.78044C9.68177 7.49012 11.5336 6.29015 11.5336 3.92893C11.5336 1.19997 9.39317 0 5.97807 0H0V13.5481ZM1.1134 6.83223V3.72582H5.05297C7.05338 3.72582 8.5639 4.09641 8.5639 5.28447C8.5639 6.47254 6.91051 6.83223 5.09381 6.83223H1.1134Z" fill="black"/>
+</svg>
+
+		</a>
 	</nav>
 	<nav>
 		<!-- <r4-user></r4-user> -->
@@ -16,7 +23,7 @@ import sdk from '@radio4000/sdk'
 				<a href="/auth/sign-up">Sign Up</a>
 				<a href="/auth/sign-in">Sign In</a>
 			</nav>
-			<nav slot="in">
+			<nav slot="in" hidden>
 				<a href="/create-radio">Create radio</a>
 				<a href="/add">Add track</a>
 				<r4-sign-out />
@@ -36,10 +43,12 @@ import sdk from '@radio4000/sdk'
 		display: flex;
 		place-items: center;
 		gap: 1em;
-		min-height: 3em;
 	}
-	nav r4-favicon {
-		width: 2em;
+	[hidden] {
+		display: none;
+	}
+	r4-auth-status[auth="true"] [slot="in"][hidden] {
+		display: block;
 	}
 	a {
 		color: black;

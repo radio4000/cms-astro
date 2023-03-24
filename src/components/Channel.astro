@@ -9,6 +9,8 @@ const {channel} = Astro.props
 
 <h1>{channel.name} <small>@{channel.slug}</small></h1>
 
+<p>{channel.description}</p>
+
 <nav>
 	<a href={`/${channel.slug}/edit`}>Edit</a>
 	<a href={`/${channel.slug}/delete`}>Delete</a>
